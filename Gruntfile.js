@@ -18,9 +18,9 @@ module.exports = function ( grunt ) {
     connect: {
       server: {
         options: {
-          open: {
-              target: 'http://localhost:8000/'
-          },
+//          open: {
+//              target: 'http://localhost:8000/'
+//          },
           keepalive: false,
           base: ['.'],
           livereload: true,
