@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mettez un Panda roux dans votre Webview HTML5 - Devfest Nantes 2014</title>
+    <title>Mettez un Panda Roux dans votre Webview HTML5 - Devfest Nantes 2014</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style type="text/css">
-      @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(//fonts.googleapis.com/css?family=Permanent+Marker|Great+Vibes|Fredericka+the+Great|Ubuntu+Mono|Yanone+Kaffeesatz);
 
       body {
         font-family: 'Ubuntu Mono';
@@ -23,6 +22,19 @@
         font-size: 30px;
       }
 
+      .remark-slide-content li {
+        margin-top: 0.2em;
+        margin-bottom: 0.3em;
+      }
+
+      .remark-slide-content a, #slide-menu a {
+        color: inherit;
+      }
+
+      #slide-menu a {
+        text-decoration: none;
+      }
+
       .dlecan { font-family: Yanone Kaffeesatz, Georgia, serif; }
       .dlecan p { color: #a09583; font-size: 34px }
       .dlecan h1 { font-family: Yanone Kaffeesatz, Georgia, serif; color: #fff; }
@@ -35,18 +47,22 @@
 
       .red    { color: #FF4943; }
       .gray   { color: #787878; }
-      .green  { color: #87A558; }
-      .blue   { color: #41C8F0; }
+      .green  { color: #8ABA3D; }
+      .blue   { color: #15aaff; }
       .yellow { color: #DBEC62; }
       .white  { color: white;   }
       .black  { color: black;   }
+      .orange { color: #f79c37; }
 
-      .back-yellow { background-color: #DBEC62; }
-      .back-red    { background-color: #FF4943; }
-      .back-black, .dlecan    { background-color: black; }
+      .bg-yellow { background-color: #DBEC62; }
+      .bg-red    { background-color: #FF4943; }
+      .bg-black, .dlecan    { background-color: black; }
+      .bg-blue { background-color: #15aaff; }
+      .bg-orange { background-color: #f79c37; }
+      .bg-gray { background-color: #787878; }
 
       .blockquote {
-        background: #f9f9f9;
+        background: #f9f9f9;  
         border-left: 10px solid #ccc;
         margin: 1.5em 10px;
         padding: 0.5em 10px;
@@ -65,14 +81,6 @@
         display: inline;
       }
 
-      #slide-menu a {
-        text-decoration: none;
-      }
-
-      .remark-slide-content a, #slide-menu a {
-        color:inherit;
-      }
-
       .pull-left {
         float: left;
         width: 49%;
@@ -89,6 +97,39 @@
         font-size: 120%;
       }
 
+      .x-large {
+        font-size: 300%;
+      }
+
+      .title {
+        font-size: 150%;
+      }
+
+      .contrast {
+        padding: 0.3em;
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+      }
+
+      .logo img {
+        max-width: 160px;
+        position: absolute;
+        left: 1em;
+        bottom: 10em;
+      }
+
+      .app-title {
+        font-family: 'Fredericka the Great', cursive;
+      }
+
+      .app-subtitle {
+        font-family: 'Permanent Marker', cursive;
+      }
+
+      .onceupon {
+        font-family: 'Great Vibes', cursive;
+      }
+
     </style>
   </head>
   <body>
@@ -99,11 +140,13 @@ background-image: url("resources/2014_affiche_A2_paysage_avec sponsors_16-9.png"
 
 ---
 
-class: center, middle
+class: center, middle, bg-blue, black
 
-# Mettez un panda roux <br/> dans votre Webview
+# .title[Mettez un .orange[Panda Roux] <br/> dans votre .white[Webview]]
 
-.footnote.left[Built with [remark](https://github.com/gnab/remark/)]
+.gray.large[<i class="fa fa-twitter fa-fw"></i>[@dlecan](https://github.com/dlecan)]
+
+.logo[![Panda Roux](resources/firefoxos5.png)]
 
 ---
 
@@ -117,28 +160,30 @@ Web & mobile Architect @.red[[SQLI](http://www.sqli.com)]
 
 &nbsp;
 
-<i class="fa fa-heart red fa-lg"></i> Open Source
+Web <i class="fa fa-heart red fa-lg fa-fw"></i> Open Source
 
 ---
 name: menu
-class: center, middle, back-red, white
+class: center, middle, bg-orange, white
 
 # <i class="fa fa-bars black"></i> .black[Menu]
 
-## [Webview ? <br/>Et problèmes sous Android](#webview)
+## [Webview ?](#webview)
+### [Et problèmes sous Android](#webview)
 
-## [Les solutions par Mozilla](#solutions)
+## [Les solutions de Mozilla](#solutions)
 
 ---
 class: center, middle
 
-.gray[Il était une fois ...]
+# .gray.onceupon.large[Il était une fois ...]
 
 ---
+class: middle, center, bg-gray
 
-NBA ! New Banking App
+# .x-large.app-title[.orange[N].green[B].blue[A]]
+## .white.app-subtitle[New Banking App]
 
-mettre un fond sombre, 3 couleurs et des polices spaces
 
 ---
 name: exigences
@@ -186,7 +231,7 @@ class: center, middle
 
 ---
 name: webview
-class: center, middle, back-black, white
+class: center, middle, bg-black, white
 
 # [<i class="fa fa-bars red"></i>](#menu)
 
@@ -224,6 +269,7 @@ WebView webview = (WebView) findViewById(R.id.webview);
 webview.loadUrl(url);
 
 WebSettings ws = webview.getSettings();
+// JS désactivé par défaut !
 ws.setJavaScriptEnabled(true);
 ```
 ---
@@ -268,20 +314,19 @@ Parts de marché des versions Android
 
 ---
 name: solutions
-class: center, middle, back-black, white
+class: center, middle, bg-black, white
 
 # [<i class="fa fa-bars red"></i>](#menu)
 
-# Les solutions par Mozilla
+# Les solutions de Mozilla
 
 <i class="fa fa-question-circle fa-5x"></i>
 
 ---
-class: center, middle, back-black, white
+class: center, bottom
+background-image: url("resources/firefoxos6.jpg")
 
-Image de Firefox
-
-# Geckoview <i class="fa fa-arrows-h fa-lg red"></i> Open Web Apps for Android
+# .contrast[Geckoview .red[//] Open Web Apps for Android]
 
 ---
 
@@ -307,13 +352,12 @@ Ressources :
 final String url = "http://devfest.gdgnantes.com/"; // Ou file:///
 
 GeckoView geckoView = (GeckoView) findViewById(R.id.webview);
-GeckoView.Browser browser = geckoView.getCurrentBrowser();
 
 browser.setChromeDelegate(new GeckoViewChrome() {
   public void onReady(GeckoView view) {
     view.addBrowser(url);
   }
-  // Redéfinir les autres méthodes pour gérer
+  // Il faut aussi redéfinir d'autres méthodes pour gérer
   // correctement le cycle de vie de la webview
   // onAlert, onConfirm, onDebugRequest, onScriptMessage
 });
@@ -328,7 +372,7 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 - Support riche d'HTML5
 - Performances JS/CSS
 - Maîtrise de la version du moteur
-- Compatible avec de nombreuses versions d'Android
+- Même version du moteur pour des versions d'Android
   - D'aujourd'hui
   - De demain
 ]
@@ -337,7 +381,7 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 
 .pull-right[.red.large[**Inconvénients**]
 
-- Pas encore mûr
+- Pas encore assez mûr
 - API incompatible avec celle de la Webview Android
 - Intégration avec Cordova non disponible
 - Packaging complexe
@@ -364,11 +408,29 @@ The Chromium layer is now .green[**updatable from Google Play**].
 ]
 
 ---
+name: conclusion
+class: bg-black, white
 
-# Conclusion
+# Des outils qui ...
 
-- Outils plein de potentiels
-- 
+- .red[Doivent mûrir]
+
+# &emsp;&emsp; .blue[&amp;]
+
+.green[
+- Répondent à des besoins 
+- Plein de potentiel
+- Font avancer le Web !
+]
+
+---
+class: bg-black, middle, center, white
+
+# .blue.title[Merci !]
+
+# .title[.red[Q] .gray[&amp;] .green[R]]
+
+.footnote.left[Built with [remark](https://github.com/gnab/remark/)]
 
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
