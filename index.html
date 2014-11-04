@@ -5,34 +5,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style type="text/css">
-      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
       body {
         font-family: 'Ubuntu Mono';
       }
       h1, h2, h3 {
-        font-family: 'Ubuntu Mono';
+        font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
       .remark-code, .remark-inline-code {
-        font-size: 22px;
+        font-size: 20px;
       }
 
       .remark-slide-content {
         font-size: 30px;
       }
-       
-      .dlecan { font-family: Georgia, serif; background-color: #000; }
-      .dlecan p { color: #a09583; }
-      .dlecan h1 { text-shadow: none; background-color: inherit; font-family: Georgia, serif; color: #a09583; }
-      .dlecan h2 { font-family: Georgia, serif; color: #fff; }
-      .dlecan a { color: #ff6967; }
+
+      .dlecan { font-family: Yanone Kaffeesatz, Georgia, serif; }
+      .dlecan p { color: #a09583; font-size: 34px }
+      .dlecan h1 { font-family: Yanone Kaffeesatz, Georgia, serif; color: #fff; }
 
       .footnote {
         position: absolute;
-        bottom: 2em;
-        font-size: 85%;
+        bottom: 1,5em;
+        font-size: 70%;
       }
 
       .red    { color: #FF4943; }
@@ -41,6 +39,56 @@
       .blue   { color: #41C8F0; }
       .yellow { color: #DBEC62; }
       .white  { color: white;   }
+      .black  { color: black;   }
+
+      .back-yellow { background-color: #DBEC62; }
+      .back-red    { background-color: #FF4943; }
+      .back-black, .dlecan    { background-color: black; }
+
+      .blockquote {
+        background: #f9f9f9;
+        border-left: 10px solid #ccc;
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+        width: 75%;
+      }
+      .blockquote:before {
+        color: #ccc;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+      }
+      .blockquote p {
+        display: inline;
+      }
+
+      #slide-menu a {
+        text-decoration: none;
+      }
+
+      .remark-slide-content a, #slide-menu a {
+        color:inherit;
+      }
+
+      .pull-left {
+        float: left;
+        width: 49%;
+      }
+      .pull-right {
+        float: right;
+        width: 49%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+
+      .large {
+        font-size: 120%;
+      }
+
     </style>
   </head>
   <body>
@@ -63,37 +111,28 @@ class: dlecan, center, middle
 
 Par
 
-## Damien Lecan
+# Damien Lecan
 
-Web & mobile Architect @[SQLI](http://www.sqli.com)
+Web & mobile Architect @.red[[SQLI](http://www.sqli.com)]
 
+&nbsp;
 
----
-
-# Contenu
-
-- qu'est-ce qu'une webview ?
-- quel problème avec le développement HTML5 multi-OS ?
-- parler d'une application desktop + tablettes avec expérience similaire sur tous les OS
-- Parts de marché Android
-- Geckoview
-- Intégration avec Cordova https://issues.apache.org/jira/browse/CB-3990
-
-- ...
-        
-        * Super appli
-        * Desktop : OK
-        * iOS : OK
-        * Android : KO
-        
+<i class="fa fa-heart red fa-lg"></i> Open Source
 
 ---
+name: menu
+class: center, middle, back-red, white
 
-Chapitre I
+# <i class="fa fa-bars black"></i> .black[Menu]
+
+## [Webview ? <br/>Et problèmes sous Android](#webview)
+
+## [Les solutions par Mozilla](#solutions)
 
 ---
+class: center, middle
 
-Il était une fois ...
+.gray[Il était une fois ...]
 
 ---
 
@@ -102,25 +141,35 @@ NBA ! New Banking App
 mettre un fond sombre, 3 couleurs et des polices spaces
 
 ---
+name: exigences
+
 # Exigences
 
 --
 
-* <i class="fa fa-desktop fa-3x"></i> Desktop
-  * Site web
+<i class="fa fa-laptop fa-lg fa-fw"></i> Desktop / Site web
+
 --
 
-* <i class="fa fa-tablet fa-3x"></i> Tablettes
-  * Accès par les stores
---
-  
-* Expérience utilisateur (quasi) identique sur tous les terminaux
+
+<i class="fa fa-tablet fa-lg fa-fw"></i> Tablettes / Accès par les stores
 --
 
-* Doit faire .red[*_Whaou !_*] à sa sortie ...
+
+<i class="fa fa-arrows-alt fa-lg fa-fw"></i> Expérience utilisateur (quasi) identique partout
 --
-  
-* ...et mourir quelques semaines plus tard
+
+
+<i class="fa fa-exclamation-circle fa-lg fa-fw"></i> Doit faire .red[*_Whaou !_*] à sa sortie ...
+--
+
+
+<i class="fa fa-rocket fa-lg fa-fw"></i> ... rapidement (TTM) ...
+--
+
+
+<i class="fa fa-eur fa-lg fa-fw"></i>... et pas cher !
+
 
 ---
 class: center, middle
@@ -136,24 +185,29 @@ class: center, middle
 ![Fight !](resources/fight.png)
 
 ---
+name: webview
+class: center, middle, back-black, white
 
-class: center, middle
+# [<i class="fa fa-bars red"></i>](#menu)
 
 # Webview ?
 
 ---
 background-image: url("resources/biere.jpg")
-class: center, middle
-
-# .white[HTML5&nbsp;&nbsp;&nbsp;]
 
 # &nbsp;
 
-# WEBVIEW !&nbsp;&nbsp;
+# &nbsp;
+
+# .white.center.middle[HTML5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+
+# .left[WEBVIEW !]
 
 ---
 background-image: url("resources/webview_healthtap_simple.png")
 class:  middle
+
+# &nbsp;
 
 # .blue[WEBVIEW !]
 
@@ -183,11 +237,11 @@ class: middle, center
 
 name: html5-support
 
-# Support HTML5 des Webviews
+Support des fonctionnalités HTML5
 
 <div id="chartdiv-html5-support" style="width: 100%; height: 400px; background-color: #282828;" ></div>
 
-.footnote[Source : [html5test.com](http://html5test.com)]
+.footnote[Source : [html5test.com](http://html5test.com)<br/>* Projeté]
 
 ---
 
@@ -201,22 +255,120 @@ Parts de marché des versions Android
 
 ---
 
-.center[#  En résumé
+# .center[En résumé]
 
-## Nos choix possibles sur Android]
-1. Natif
+1. Natif : _Time-to-market_ et budget à risques <i class="fa fa-thumbs-down"></i>
 2. Webview Android HTML5
-<br/>mais Android 4.4 mini (PDM &lt; 30% <i class="fa fa-thumbs-down"></i>
-)
-3. ...
+   * Android &le; 4.3 : performances insuffisantes <i class="fa fa-thumbs-down"></i>
+   * Android 4.4 et 5+ : parts de marché insuffisantes <i class="fa fa-thumbs-down"></i>
+
+--
+.center[![Colère de la MOA](resources/colere.jpg)]
+.center.red[MOA]
 
 ---
-class: center, middle
+name: solutions
+class: center, middle, back-black, white
+
+# [<i class="fa fa-bars red"></i>](#menu)
+
+# Les solutions par Mozilla
+
+<i class="fa fa-question-circle fa-5x"></i>
+
+---
+class: center, middle, back-black, white
 
 Image de Firefox
 
-Geckoview
+# Geckoview <i class="fa fa-arrows-h fa-lg red"></i> Open Web Apps for Android
 
+---
+
+# Geckoview
+
+- Extraction du moteur Fennec/Firefox mobile, embarquable dans votre APK
+- Disponible pour plusieurs architectures
+  - x86 et armv7 : ~7Mo de librairies
+  - armv6 : support stoppé il y a quelques mois
+- Fonctionnel mais encore du travail à fournir
+- Debuggage à distance possible
+- [Intégration au sein de Cordova](https://issues.apache.org/jira/browse/CB-3990) dans les cartons
+
+Ressources :
+- [Page du projet](https://wiki.mozilla.org/Mobile/GeckoView)
+- [Navigateur simple basé sur Geckoview](https://github.com/mfinkle/geckobrowser)
+
+---
+
+# Geckoview
+
+```
+final String url = "http://devfest.gdgnantes.com/"; // Ou file:///
+
+GeckoView geckoView = (GeckoView) findViewById(R.id.webview);
+GeckoView.Browser browser = geckoView.getCurrentBrowser();
+
+browser.setChromeDelegate(new GeckoViewChrome() {
+  public void onReady(GeckoView view) {
+    view.addBrowser(url);
+  }
+  // Redéfinir les autres méthodes pour gérer
+  // correctement le cycle de vie de la webview
+  // onAlert, onConfirm, onDebugRequest, onScriptMessage
+});
+```
+
+---
+
+# Geckoview
+
+.pull-left[.green.large[**Avantages**]
+
+- Support riche d'HTML5
+- Performances JS/CSS
+- Maîtrise de la version du moteur
+- Compatible avec de nombreuses versions d'Android
+  - D'aujourd'hui
+  - De demain
+]
+
+--
+
+.pull-right[.red.large[**Inconvénients**]
+
+- Pas encore mûr
+- API incompatible avec celle de la Webview Android
+- Intégration avec Cordova non disponible
+- Packaging complexe
+  - Gestion des architectures matérielles à faire manuellement*
+]
+
+.footnote[*[Pistes d'améliorations](www.ncalexander.net/blog/2014/07/10/build-your-own-browser-a-maven-repository-for-geckoview/)]
+
+---
+
+Open Web Apps for Android
+
+---
+
+# Et du côté de Google ?
+Zoom sur la Webview Android 5
+
+.blockquote[Android 5.0 includes a version of WebView based on the Chromium M37 release, adding support for WebRTC, WebAudio, WebGL (...) Custom Elements, Shadow DOM, HTML Imports (...).
+<br/>
+The Chromium layer is now .green[**updatable from Google Play**].
+<br/>
+<br/>
+[Android Developers](http://developer.android.com/about/versions/lollipop.html#WebView)
+]
+
+---
+
+# Conclusion
+
+- Outils plein de potentiels
+- 
 
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
@@ -295,32 +447,32 @@ Geckoview
                 {
                   "category": "iOS8",
                   "column-1": "438",
-                  "column-2": "380"
+                  "column-2": "400"
                 },
                 {
                   "category": "Windows 8 / IE11",
                   "column-1": "376",
-                  "column-2": "380"
-                },
-                {
-                  "category": "Android L",
-                  "column-1": "500",
-                  "column-2": "380"
-                },
-                {
-                  "category": "Android 4.4",
-                  "column-1": "434",
-                  "column-2": "380"
-                },
-                {
-                  "category": "Android 4.0 -> 4.2",
-                  "column-1": "275",
-                  "column-2": "380"
+                  "column-2": "400"
                 },
                 {
                   "category": "Android 2.3",
                   "column-1": "187",
-                  "column-2": "380"
+                  "column-2": "400"
+                },
+                {
+                  "category": "Android 4.0 -> 4.3",
+                  "column-1": "275",
+                  "column-2": "400"
+                },
+                {
+                  "category": "Android 4.4",
+                  "column-1": "434",
+                  "column-2": "400"
+                },
+                {
+                  "category": "Android 5*",
+                  "column-1": "500",
+                  "column-2": "400"
                 }
               ]
             }
@@ -346,9 +498,8 @@ Geckoview
                 {
                   "category": "Android <= 4.3",
                   "column-1": "70"
-                },
-                {
-                  "category": "Android 4.4",
+                },                {
+                  "category": "Android >= 4.4",
                   "column-1": "30"
                 }
               ]
