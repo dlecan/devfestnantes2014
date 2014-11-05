@@ -14,8 +14,12 @@
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
-      .remark-code, .remark-inline-code {
+      .remark-code {
         font-size: 20px;
+      }
+
+      .remark-inline-code {
+        font-size: 30px;
       }
 
       .remark-slide-content {
@@ -23,8 +27,8 @@
       }
 
       .remark-slide-content li {
-        margin-top: 0.2em;
-        margin-bottom: 0.3em;
+        margin-top: 0.3em;
+        margin-bottom: 0.4em;
       }
 
       .remark-slide-content a, #slide-menu a {
@@ -41,7 +45,7 @@
 
       .footnote {
         position: absolute;
-        bottom: 1.5em;
+        bottom: 0.5em;
         font-size: 70%;
       }
 
@@ -113,8 +117,6 @@
 
       .logo img {
         max-width: 160px;
-        position: absolute;
-        left: 1em;
         bottom: 10em;
       }
 
@@ -128,6 +130,27 @@
 
       .onceupon {
         font-family: 'Great Vibes', cursive;
+      }
+
+      .mozilla {
+        top: 2em;
+      }
+
+      .mozilla img {
+        max-width: 70%;
+        background-color: #C13832;
+        border-radius: 8px;
+        padding: 0.5em;
+      }
+
+      .float-right {
+        position: absolute;
+        right: 1em;
+      }
+
+      .float-left, .logo img {
+        position: absolute;
+        left: 1em;
       }
 
     </style>
@@ -246,7 +269,7 @@ background-image: url("resources/biere.jpg")
 
 # &nbsp;
 
-# .white.center.middle[HTML5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+# .white.center.middle[HTML5 / JS / CSS&emsp;&emsp;]
 
 # .left[WEBVIEW !]
 
@@ -274,6 +297,12 @@ WebSettings ws = webview.getSettings();
 // JS désactivé par défaut !
 ws.setJavaScriptEnabled(true);
 ```
+
+- Lien Java &lt;-&gt; JavaScript possible
+- Paramétrage fin des caches
+- Désactivation de comportements "Web" : rebond, zoom ...
+
+
 ---
 class: middle, center
 
@@ -331,18 +360,27 @@ background-image: url("resources/firefoxos6.jpg")
 # .contrast[Geckoview .red[//] Open Web Apps for Android]
 
 ---
+class: center, middle, bg-black, white
 
 # Geckoview
 
-- Extraction du moteur Fennec/Firefox mobile, embarquable dans votre APK
+---
+# Geckoview
+
+- Extraction du moteur Fennec/Firefox mobile
+  - Embarquable dans votre APK
 - Disponible pour plusieurs architectures
   - x86 et armv7 : ~7Mo de librairies
   - armv6 : support stoppé il y a quelques mois
 - Fonctionnel mais encore du travail à fournir
-- Debuggage à distance possible
+- Debug à distance possible
 - [Intégration au sein de Cordova](https://issues.apache.org/jira/browse/CB-3990) dans les cartons
 
-Ressources :
+---
+# Geckoview
+
+### Quelques ressources
+
 - [Page du projet](https://wiki.mozilla.org/Mobile/GeckoView)
 - [Navigateur simple basé sur Geckoview](https://github.com/mfinkle/geckobrowser)
 
@@ -369,7 +407,28 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 
 # Geckoview
 
-.pull-left[.green.large[**Avantages**]
+.pull-left[.red.large[**Inconvénients**]
+
+- Pas encore assez mûr
+- API incompatible avec celle de la Webview Android
+- Intégration avec Cordova non disponible
+- Packaging complexe
+  - Gestion manuelle des architectures matérielles*
+]
+
+
+.footnote.left[*[Pistes d'améliorations](http://www.ncalexander.net/blog/2014/07/10/build-your-own-browser-a-maven-repository-for-geckoview/)]
+
+
+???
+
+- Non compatible iOS ou Windows Phone/8
+
+
+--
+
+
+.pull-right[.green.large[**Avantages**]
 
 - Support riche d'HTML5
 - Performances JS/CSS
@@ -379,27 +438,117 @@ browser.setChromeDelegate(new GeckoViewChrome() {
   - De demain
 ]
 
---
 
-.pull-right[.red.large[**Inconvénients**]
+---
+class: center, middle, bg-black, white
 
-- Pas encore assez mûr
-- API incompatible avec celle de la Webview Android
-- Intégration avec Cordova non disponible
-- Packaging complexe
-  - Gestion des architectures matérielles à faire manuellement*
-]
+# Open Web Apps for Android
 
-.footnote[*[Pistes d'améliorations](www.ncalexander.net/blog/2014/07/10/build-your-own-browser-a-maven-repository-for-geckoview/)]
+???
+
+Plus industriel
 
 ---
 
-Open Web Apps for Android
+# Open Web Apps for Android
+
+.right.float-right.mozilla[![Mozilla](resources/mozilla-wordmark-white.png)]
+
+- Initiative de Mozilla
+- Apporter à Android une expérience d'app native avec des apps HTML5/CSS/JS
+
+--
+
+## Comment ?&nbsp;
+--
+.green[Avec une usine à Web Apps]
+  
+- Construction d'APK à partir d'un Manifest ou d'un contenu web
+- Exécution basée sur une installation de Firefox Mobile
+  - Locale au terminal
+
+---
+
+# Open Web Apps for Android
+
+Exemple de `manifest.webapp`
+
+```javascript
+{
+  "name":"Devfest Nantes 2014",
+  "description":"Application Devfest Nantes 2014",
+  "version":"1.0",
+  "icons":{
+    "16":"http://localhost:8888/favicon.png"
+  },
+  "installs_allowed_from":[
+    "*"
+  ],
+  "developer":{
+    "name":"Damien Lecan",
+    "url":"http://blog.dlecan.com"
+  }
+}
+
+```
+
+---
+
+# Open Web Apps for Android
+
+## Processus de construction d'une Web App hébergée
+
+1. Construction de l'application Web
+  <br/>Hébergée sur http://localhost:8888/
+
+2. Description de la Web App à l'aide d'un `manifest.webapp`
+
+3. Construction de l'APK de notre application
+
+4. Déploiement de l'APK dans les terminaux
+  <br/>Au 1er lancement, installation de Firefox Mobile si besoin
+
+---
+class: center, middle, bg-black, white
+
+# Démo
+
+---
+
+# Open Web Apps for Android
+
+.pull-left[.red.large[**Inconvénients**]
+
+- Nécessite de recourir à un store alternatif*
+- Concurrence en partie Cordova
+- Manque la publication automatique dans le Play Store
+
+]
+
+
+.footnote.left[*Autoriser les "Sources inconnues" d'applications n'est jamais sûr]
+
+
+--
+
+
+.pull-right[.green.large[**Avantages**]
+
+- Simplicité de la construction de Web Apps
+  - Valable aussi sur desktop
+- API puissantes et ouvertes pour les apps packagées: paiement ...
+]
+
+
+---
+
+# Pour aller plus loin
+
+- Explorer les 
 
 ---
 
 # Et du côté de Google ?
-Zoom sur la Webview Android 5
 
 .blockquote[Android 5.0 includes a version of WebView based on the Chromium M37 release, adding support for WebRTC, WebAudio, WebGL (...) Custom Elements, Shadow DOM, HTML Imports (...).
 <br/>
@@ -408,6 +557,8 @@ The Chromium layer is now .green[**updatable from Google Play**].
 <br/>
 [Android Developers](http://developer.android.com/about/versions/lollipop.html#WebView)
 ]
+
+Idem Mozilla : un *runtime* est déposé sur le téléphone et les Web Apps s'appuient dessus.
 
 ---
 name: conclusion
