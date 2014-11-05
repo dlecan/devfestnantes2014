@@ -8,7 +8,7 @@
       @import url(vendor/fonts.css);
 
       body {
-        font-family: 'Ubuntu Mono';
+        font-family: 'Ubuntu', sans-serif;
       }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
@@ -19,16 +19,16 @@
       }
 
       .remark-inline-code {
-        font-size: 30px;
+        font-size: 28px;
       }
 
       .remark-slide-content {
-        font-size: 30px;
+        font-size: 28px;
       }
 
       .remark-slide-content li {
-        margin-top: 0.3em;
-        margin-bottom: 0.4em;
+        margin-top: 0.4em;
+        margin-bottom: 0.5em;
       }
 
       .remark-slide-content a, #slide-menu a {
@@ -376,7 +376,7 @@ class: center, middle, bg-black, white
 - Disponible pour plusieurs architectures
   - x86 et armv7 : ~7Mo de librairies
   - armv6 : support stoppé il y a quelques mois
-- Fonctionnel mais encore du travail à fournir
+- Fonctionnelle mais encore du travail à fournir
 - Debug à distance possible
 - [Intégration au sein de Cordova](https://issues.apache.org/jira/browse/CB-3990) dans les cartons
 
@@ -415,7 +415,7 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 
 - Pas encore assez mûr
 - API incompatible avec celle de la Webview Android
-- Pas (encore) intégré avec Cordova
+- Pas (encore) intégrée avec Cordova
 - Packaging complexe
   - Gestion manuelle des architectures matérielles*
 ]
@@ -466,7 +466,9 @@ Plus industriel
 .green[Avec une usine à Web Apps]
 
 - Construction d'APK à partir d'un Manifest ou d'un contenu web
+  - Service en SaaS
 .float-right.firefox[![Mozilla](resources/firefox_logo-only_RGB.png)]
+  - [Installation locale possible](https://github.com/mozilla/apk-factory-service)
 - Exécution basée sur une installation de Firefox Mobile
   - Locale au terminal
 
@@ -486,7 +488,7 @@ Exemple de `manifest.webapp`
     "128":"128.png"
   },
   "installs_allowed_from":["*"],
-  "launch_path":"index.html"
+  "launch_path":"index.html",
   "developer":{
     "name":"Damien Lecan",
     "url":"http://twitter.com/dlecan"
@@ -502,7 +504,8 @@ Exemple de `manifest.webapp`
 ## Processus de construction d'une Web App hébergée
 
 1. Construction de l'application Web
-  <br/>Hébergée sur http://devfest.nantes:8888/
+  - Hébergée
+  - Packagée
 
 2. Description de la Web App à l'aide d'un `manifest.webapp`
 
@@ -523,7 +526,8 @@ class: center, middle, bg-black, white
 .pull-left[.red.large.center[**Limites**]
 
 - Selon le mode de déploiement, requiert un store tiers* (Marketplace)
-- Pas de publication automatique dans le Play Store
+- Chaine de build à améliorer
+  - Manque un lien avec le Google Play par exemple
 - Apps produites dépendante de la version de Firefox Mobile installé
 
 ]
@@ -540,6 +544,7 @@ class: center, middle, bg-black, white
 - Construction de Web Apps très simple
   - Valable aussi sur desktop
 - API puissantes et ouvertes pour les apps packagées: paiement ...
+- Outils de développement/debug prêts
 ]
 
 
@@ -560,7 +565,7 @@ The Chromium layer is now .green[**updatable from Google Play**].
 [Android Developers](http://developer.android.com/about/versions/lollipop.html#WebView)
 ]
 
-Idem Mozilla : un *runtime* est déposé sur le téléphone et les "Web Apps" s'appuient dessus.
+Idem Mozilla : un *runtime* est déposé sur le téléphone, partagé et les "Web Apps" s'appuient dessus.
 
 ---
 name: conclusion

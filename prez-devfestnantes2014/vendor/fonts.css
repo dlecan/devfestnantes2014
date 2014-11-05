@@ -28,3 +28,9 @@
   font-weight: 400;
   src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(YDAoLskQQ5MOAgvHUQCcLRTHiN2BPBirwIkMLKUspj4.woff) format('woff');
 }
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu'), url(_xyN3apAT_yRRDeqB3sPRg.woff) format('woff');
+}
