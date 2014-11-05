@@ -183,11 +183,11 @@ Par
 
 # Damien Lecan
 
-Web & mobile Architect @.red[[SQLI](http://www.sqli.com)]
+Web &amp; mobile Architect @.red[[SQLI](http://www.sqli.com)]
 
 &nbsp;
 
-Web <i class="fa fa-heart red fa-lg fa-fw"></i> Open Source
+Open Source <i class="fa fa-heart red fa-lg fa-fw"></i> Web
 
 ---
 name: menu
@@ -203,7 +203,15 @@ class: center, middle, bg-orange, white
 ---
 class: center, middle
 
-# .gray.onceupon.large[Il était une fois ...]
+# .gray.onceupon.x-large[Il était une fois ...]
+
+???
+
+- Expert technique
+
+- MOA qui vient vous voir
+
+- Super appli
 
 ---
 class: middle, center, bg-gray
@@ -219,28 +227,28 @@ name: exigences
 
 --
 
+
+<i class="fa fa-tablet fa-lg fa-fw"></i> Tablettes / Accès par les stores
+
+--
+
 <i class="fa fa-laptop fa-lg fa-fw"></i> Desktop / Site web
 
 --
 
-
-<i class="fa fa-tablet fa-lg fa-fw"></i> Tablettes / Accès par les stores
---
-
-
 <i class="fa fa-arrows-alt fa-lg fa-fw"></i> Expérience utilisateur (quasi) identique partout
---
 
+--
 
 <i class="fa fa-exclamation-circle fa-lg fa-fw"></i> Effet .red[*_Whaou !_*]
+
 --
 
+<i class="fa fa-rocket fa-lg fa-fw"></i>*Time-to-market* court
 
-<i class="fa fa-rocket fa-lg fa-fw"></i>*Time-to-market* le plus court possible
 --
 
-
-<i class="fa fa-eur fa-lg fa-fw"></i>... et pas cher !
+<i class="fa fa-eur fa-lg fa-fw"></i>... et budget réduit !
 
 
 ---
@@ -250,11 +258,16 @@ class: center, middle
 
 --
 
-# Natif vs Webview HTML5
+# .red[Eternel débat *Natif vs Webview HTML5* ?]
 
---
 
 ![Fight !](resources/fight.png)
+
+???
+
+- Eternel débat à nouveau ?
+- Pas de pb sur iOS
+- Et sur Android ?
 
 ---
 name: webview
@@ -285,8 +298,12 @@ class:  middle
 
 # .blue[WEBVIEW !]
 
+Moteur HTML5 <br/>embarquable dans<br/>une app mobile
+
+"Concept"<br/>disponible sur tous<br/>les OS mobiles
+
 ---
-# Webview ?
+# Webview sous Android ?
 
 ```java
 String url = "http://devfest.gdgnantes.com/";
@@ -310,7 +327,7 @@ ws.setJavaScriptEnabled(true);
 ---
 class: middle, center
 
-# Et les "perfs" des Webviews ?
+# Que valent ces Webviews ?
 
 <i class="fa fa-tachometer fa-5x"></i>
 
@@ -338,14 +355,13 @@ Parts de marché des versions Android
 
 # .center[En résumé]
 
-1. Natif : _Time-to-market_ et budget à risques <i class="fa fa-thumbs-down"></i>
-2. Webview Android HTML5
+1. Combinaison HTML5 + Natif selon plateformes :<br/>_Time-to-market_ et budget à risques <i class="fa fa-thumbs-down"></i>
+2. HTML5 sur toutes les plateformes
    * Android &le; 4.3 : performances insuffisantes <i class="fa fa-thumbs-down"></i>
    * Android 4.4 et 5+ : parts de marché insuffisantes <i class="fa fa-thumbs-down"></i>
 
 --
 .center[![Colère de la MOA](resources/colere.jpg)]
-.center.red[MOA]
 
 ---
 name: solutions
@@ -373,10 +389,15 @@ class: center, middle, bg-black, white
 
 - Extraction du moteur Fennec/Firefox mobile
   - Embarquable dans votre APK
+--
+
 - Disponible pour plusieurs architectures
   - x86 et armv7 : ~7Mo de librairies
   - armv6 : support stoppé il y a quelques mois
-- Debug à distance possible
+--
+
+- Prêt pour le développement
+  - Debug à distance possible par ex.
 - [Intégration au sein de Cordova](https://issues.apache.org/jira/browse/CB-3990) dans les cartons
 
 ---
@@ -416,7 +437,7 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 - API incompatible avec celle de la Webview Android
 - Pas (encore) intégrée avec Cordova
 - Packaging complexe
-  - Gestion manuelle des architectures matérielles*
+  - Gestion manuelle des architectures matérielles ou des mises à jour*
 ]
 
 
@@ -435,8 +456,9 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 
 - Support riche d'HTML5
 - Performances HTML/JS/CSS
-- Maîtrise de la version du moteur
-- Indépendant des versions d'Android
+- Maîtrise de votre plateforme d'exécution
+  - Version du moteur HTML5
+  - Indépendance des versions d'Android
 ]
 
 
@@ -456,13 +478,15 @@ Plus industriel
 .float-right.mozilla[![Mozilla](resources/mozilla-wordmark-white.png)]
 
 - Initiative de Mozilla
-- Apporter à Android une expérience d'app native avec des apps HTML5/CSS/JS
+- Apporter à Android une expérience d'applications "natives" avec HTML5/CSS/JS
 
 --
 
 ## Comment ?&nbsp;
 --
-.green[Avec une usine à Web Apps]
+.green[Avec une usine à produire des APK Web Apps]
+
+--
 
 - Construction d'APK à partir d'un Manifest ou d'un contenu web
   - Service en SaaS
@@ -471,6 +495,20 @@ Plus industriel
 - Exécution basée sur une installation de Firefox Mobile
   - Locale au terminal
 
+---
+
+# Open Web Apps for Android
+
+## Processus de construction d'une Web App
+
+<i class="fa fa-cog fa-fw fa-lg"></i> Construction de l'application Web (hébergée ou packagée)
+
+<i class="fa fa-pencil fa-fw fa-lg"></i> Description de la Web App à l'aide d'un `manifest.webapp`
+
+<i class="fa fa-cog fa-fw fa-lg"></i> Construction de l'APK de notre application avec les outils de Mozilla
+
+<i class="fa fa-share fa-fw fa-lg"></i> Déploiement de l'APK dans les terminaux
+  <br/>Au 1er lancement, installation de Firefox Mobile si besoin
 
 ---
 
@@ -497,21 +535,6 @@ Exemple de `manifest.webapp`
 ```
 
 ---
-
-# Open Web Apps for Android
-
-## Processus de construction d'une Web App
-
-<i class="fa fa-cog fa-fw fa-lg"></i> Construction de l'application Web (hébergée ou packagée)
-
-<i class="fa fa-pencil fa-fw fa-lg"></i> Description de la Web App à l'aide d'un `manifest.webapp`
-
-<i class="fa fa-cog fa-fw fa-lg"></i> Construction de l'APK de notre application avec les outils de Mozilla
-
-<i class="fa fa-share fa-fw fa-lg"></i> Déploiement de l'APK dans les terminaux
-  <br/>Au 1er lancement, installation de Firefox Mobile si besoin
-
----
 class: center, middle, bg-black, white
 
 # Démo
@@ -523,14 +546,14 @@ class: center, middle, bg-black, white
 .pull-left[.red.large.center[**Limites**]
 
 - Selon le mode de déploiement, requiert un store tiers* (Marketplace)
-- Chaine de build à améliorer
-  - Manque un lien avec le Google Play par exemple
-- Apps produites dépendante de la version de Firefox Mobile installé
+- Apps produites dépendantes de la version de Firefox Mobile installé
+- Concurrent de Cordova/Phonegap ?
+- Pas disponible pour iOS ou Windows
 
 ]
 
 
-.footnote.left[*Autoriser les "Sources inconnues" d'applications n'est jamais sûr]
+.footnote.left[*Et donc d'autoriser les "Sources inconnues" d'applications, ce qui n'est jamais sûr]
 
 
 --
@@ -540,9 +563,9 @@ class: center, middle, bg-black, white
 
 - Construction de Web Apps très simple
   - Pas une ligne de Java
-  - Valable aussi sur desktop
 - API puissantes et ouvertes pour les apps packagées: paiement ...
 - Outils de développement/debug prêts
+- Ponts aisés vers d'autres OS
 ]
 
 
@@ -563,23 +586,19 @@ The Chromium layer is now .green[**updatable from Google Play**].
 [Android Developers](http://developer.android.com/about/versions/lollipop.html#WebView)
 ]
 
-Idem Mozilla : un *runtime* est déposé sur le téléphone, partagé et les "Web Apps" s'appuient dessus.
+Idem Open Web Apps : un *runtime* est déposé sur le téléphone, partagé et les "Web Apps" s'appuient dessus.
+
+<i class="fa fa-hand-o-right red fa-lg"></i> .red[Idéal dans 3 ans]
 
 ---
 name: conclusion
-class: bg-black, white
+class: bg-black, white, center, middle
 
-# Conclusion
+# .red[Geckoview] .blue[&amp;] .orange[Open Web Apps]
 
-- .red[Doivent mûrir]
+&nbsp;
 
-# &emsp;&emsp; .blue[&amp;]
-
-.green[
-- Répondent à des besoins 
-- Plein de potentiel
-- Font avancer le Web !
-]
+## Deux solutions qui font avancer le web sur Android
 
 ---
 class: bg-black, center, white
