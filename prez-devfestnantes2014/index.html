@@ -53,12 +53,12 @@
       .gray   { color: #787878; }
       .green  { color: #8ABA3D; }
       .blue   { color: #15aaff; }
-      .yellow { color: #DBEC62; }
+      .yellow { color: #F7F41E; }
       .white  { color: white;   }
       .black  { color: black;   }
       .orange { color: #f79c37; }
 
-      .bg-yellow { background-color: #DBEC62; }
+      .bg-yellow { background-color: #F7F41E; }
       .bg-red    { background-color: #FF4943; }
       .bg-black, .dlecan    { background-color: black; }
       .bg-blue { background-color: #15aaff; }
@@ -232,11 +232,11 @@ name: exigences
 --
 
 
-<i class="fa fa-exclamation-circle fa-lg fa-fw"></i> Doit faire .red[*_Whaou !_*] à sa sortie ...
+<i class="fa fa-exclamation-circle fa-lg fa-fw"></i> Effet .red[*_Whaou !_*]
 --
 
 
-<i class="fa fa-rocket fa-lg fa-fw"></i> ... rapidement (TTM) ...
+<i class="fa fa-rocket fa-lg fa-fw"></i>*Time-to-market* le plus court possible
 --
 
 
@@ -355,7 +355,7 @@ class: center, middle, bg-black, white
 
 # Les solutions de Mozilla
 
-<i class="fa fa-question-circle fa-5x"></i>
+<i class="fa fa-lightbulb-o fa-5x yellow"></i>
 
 ---
 class: center, bottom
@@ -376,7 +376,6 @@ class: center, middle, bg-black, white
 - Disponible pour plusieurs architectures
   - x86 et armv7 : ~7Mo de librairies
   - armv6 : support stoppé il y a quelques mois
-- Fonctionnelle mais encore du travail à fournir
 - Debug à distance possible
 - [Intégration au sein de Cordova](https://issues.apache.org/jira/browse/CB-3990) dans les cartons
 
@@ -501,17 +500,15 @@ Exemple de `manifest.webapp`
 
 # Open Web Apps for Android
 
-## Processus de construction d'une Web App hébergée
+## Processus de construction d'une Web App
 
-1. Construction de l'application Web
-  - Hébergée
-  - Packagée
+<i class="fa fa-cog fa-fw fa-lg"></i> Construction de l'application Web (hébergée ou packagée)
 
-2. Description de la Web App à l'aide d'un `manifest.webapp`
+<i class="fa fa-pencil fa-fw fa-lg"></i> Description de la Web App à l'aide d'un `manifest.webapp`
 
-3. Construction de l'APK de notre application
+<i class="fa fa-cog fa-fw fa-lg"></i> Construction de l'APK de notre application avec les outils de Mozilla
 
-4. Déploiement de l'APK dans les terminaux
+<i class="fa fa-share fa-fw fa-lg"></i> Déploiement de l'APK dans les terminaux
   <br/>Au 1er lancement, installation de Firefox Mobile si besoin
 
 ---
@@ -542,6 +539,7 @@ class: center, middle, bg-black, white
 .pull-right[.green.large.center[**Atouts**]
 
 - Construction de Web Apps très simple
+  - Pas une ligne de Java
   - Valable aussi sur desktop
 - API puissantes et ouvertes pour les apps packagées: paiement ...
 - Outils de développement/debug prêts
