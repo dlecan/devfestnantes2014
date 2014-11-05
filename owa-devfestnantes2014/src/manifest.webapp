@@ -1,0 +1,14 @@
+{
+  "name":"Devfest Nantes 2014",
+  "description":"Application Devfest Nantes 2014",
+  "version":"1.0",
+  "icons":{
+    "128":"128.png"
+  },
+  "installs_allowed_from":["*"],
+  "launch_path":"index.html",
+  "developer":{
+    "name":"Damien Lecan",
+    "url":"http://twitter.com/dlecan"
+  }
+}
