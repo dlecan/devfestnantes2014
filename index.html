@@ -407,11 +407,11 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 
 # Geckoview
 
-.pull-left[.red.large[**Inconvénients**]
+.pull-left[.red.large.center[**Limites**]
 
 - Pas encore assez mûr
 - API incompatible avec celle de la Webview Android
-- Intégration avec Cordova non disponible
+- Pas (encore) intégré avec Cordova
 - Packaging complexe
   - Gestion manuelle des architectures matérielles*
 ]
@@ -428,14 +428,12 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 --
 
 
-.pull-right[.green.large[**Avantages**]
+.pull-right[.green.large.center[**Atouts**]
 
 - Support riche d'HTML5
-- Performances JS/CSS
+- Performances HTML/JS/CSS
 - Maîtrise de la version du moteur
-- Même version du moteur pour des versions d'Android
-  - D'aujourd'hui
-  - De demain
+- Indépendant des versions d'Android
 ]
 
 
@@ -473,20 +471,19 @@ Plus industriel
 
 Exemple de `manifest.webapp`
 
-```javascript
+```JSON
 {
   "name":"Devfest Nantes 2014",
   "description":"Application Devfest Nantes 2014",
   "version":"1.0",
   "icons":{
-    "16":"http://localhost:8888/favicon.png"
+    "128":"128.png"
   },
-  "installs_allowed_from":[
-    "*"
-  ],
+  "installs_allowed_from":["*"],
+  "launch_path":"index.html"
   "developer":{
     "name":"Damien Lecan",
-    "url":"http://blog.dlecan.com"
+    "url":"http://twitter.com/dlecan"
   }
 }
 
@@ -499,7 +496,7 @@ Exemple de `manifest.webapp`
 ## Processus de construction d'une Web App hébergée
 
 1. Construction de l'application Web
-  <br/>Hébergée sur http://localhost:8888/
+  <br/>Hébergée sur http://devfest.nantes:8888/
 
 2. Description de la Web App à l'aide d'un `manifest.webapp`
 
@@ -517,11 +514,11 @@ class: center, middle, bg-black, white
 
 # Open Web Apps for Android
 
-.pull-left[.red.large[**Inconvénients**]
+.pull-left[.red.large.center[**Limites**]
 
-- Nécessite de recourir à un store alternatif*
-- Concurrence en partie Cordova
-- Manque la publication automatique dans le Play Store
+- Selon le mode de déploiement, requiert un store tiers* (Marketplace)
+- Pas de publication automatique dans le Play Store
+- Apps produites dépendante de la version de Firefox Mobile installé
 
 ]
 
@@ -532,9 +529,9 @@ class: center, middle, bg-black, white
 --
 
 
-.pull-right[.green.large[**Avantages**]
+.pull-right[.green.large[**Atouts**]
 
-- Simplicité de la construction de Web Apps
+- Construction de Web Apps très simple
   - Valable aussi sur desktop
 - API puissantes et ouvertes pour les apps packagées: paiement ...
 ]
@@ -547,8 +544,13 @@ class: center, middle, bg-black, white
 - Explorer les 
 
 ---
+class: center, middle, bg-black, white
 
 # Et du côté de Google ?
+
+---
+
+# Nouveauté Android 5
 
 .blockquote[Android 5.0 includes a version of WebView based on the Chromium M37 release, adding support for WebRTC, WebAudio, WebGL (...) Custom Elements, Shadow DOM, HTML Imports (...).
 <br/>
@@ -558,7 +560,7 @@ The Chromium layer is now .green[**updatable from Google Play**].
 [Android Developers](http://developer.android.com/about/versions/lollipop.html#WebView)
 ]
 
-Idem Mozilla : un *runtime* est déposé sur le téléphone et les Web Apps s'appuient dessus.
+Idem Mozilla : un *runtime* est déposé sur le téléphone et les "Web Apps" s'appuient dessus.
 
 ---
 name: conclusion
