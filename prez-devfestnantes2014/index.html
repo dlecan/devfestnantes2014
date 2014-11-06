@@ -157,6 +157,10 @@
         left: 1em;
       }
 
+      .html5 img {
+        max-height: 70px;
+      }
+
     </style>
   </head>
   <body>
@@ -187,7 +191,7 @@ Web &amp; mobile Architect @.red[[SQLI](http://www.sqli.com)]
 
 &nbsp;
 
-Open Source <i class="fa fa-heart red fa-lg fa-fw"></i> Web
+<i class="fa fa-heart red fa-lg fa-fw"></i>Open Source - Web
 
 ---
 name: menu
@@ -254,20 +258,34 @@ name: exigences
 ---
 class: center, middle
 
-##  Quelle technologie sur tablette ?
+#  Quelle technologie de dev. sur tablette ?
 
 --
 
-# .red[Eternel débat *Natif vs Webview HTML5* ?]
+.html5[![HTML5](resources/html5-logo.png)]
 
+--
 
-![Fight !](resources/fight.png)
+<i class="fa fa-question-circle fa-3x"></i> 
 
-???
+--
 
-- Eternel débat à nouveau ?
-- Pas de pb sur iOS
-- Et sur Android ?
+iOS : 
+--
+.green[OK]
+
+--
+
+Windows 8 : 
+--
+.green[OK]
+
+--
+
+Android : 
+--
+.red[KO !!]
+
 
 ---
 name: webview
@@ -437,7 +455,8 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 - API incompatible avec celle de la Webview Android
 - Pas (encore) intégrée avec Cordova
 - Packaging complexe
-  - Gestion manuelle des architectures matérielles ou des mises à jour*
+  - Gestion manuelle des architectures mat.*
+- Non disponible sous iOS
 ]
 
 
@@ -548,7 +567,7 @@ class: center, middle, bg-black, white
 - Selon le mode de déploiement, requiert un store tiers* (Marketplace)
 - Apps produites dépendantes de la version de Firefox Mobile installé
 - Concurrent de Cordova/Phonegap ?
-- Pas disponible pour iOS ou Windows
+- Pas disponible pour iOS
 
 ]
 
