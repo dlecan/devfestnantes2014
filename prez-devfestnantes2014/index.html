@@ -35,6 +35,10 @@
         color: inherit;
       }
 
+      .remark-slide-number {
+        visibility: hidden;
+      }
+
       #slide-menu a {
         text-decoration: none;
       }
@@ -175,7 +179,7 @@ class: center, middle, bg-blue, black
 
 # .title[Mettez un .orange[Panda Roux] <br/> dans votre .white[Webview]]
 
-.gray.large[<i class="fa fa-twitter fa-fw"></i>[@dlecan](https://twitter.com/dlecan)]
+.gray.large[<i class="fa fa-twitter fa-fw"></i>[@dlecan](https://twitter.com/dlecan) - #DevFest]
 
 .logo[![Panda Roux](resources/firefoxos5.png)]
 
@@ -264,27 +268,22 @@ class: center, middle
 
 .html5[![HTML5](resources/html5-logo.png)]
 
---
 
 <i class="fa fa-question-circle fa-3x"></i> 
 
 --
 
-iOS : 
---
-.green[OK]
+iOS ... .green[OK]
 
 --
 
-Windows 8 : 
---
-.green[OK]
+Windows 8 ...  .green[OK]
 
 --
 
 Android : 
 --
-.red[KO !!]
+.red[Fail !!]
 
 
 ---
@@ -406,7 +405,7 @@ class: center, middle, bg-black, white
 # Geckoview
 
 - Extraction du moteur Fennec/Firefox mobile
-  - Embarquable dans votre APK
+  - Embarquable dans votre APK : API Java + lib natives
 --
 
 - Disponible pour plusieurs architectures
@@ -451,11 +450,10 @@ browser.setChromeDelegate(new GeckoViewChrome() {
 
 .pull-left[.red.large.center[**Limites**]
 
-- Pas encore assez mûr
+- On attend une release
 - API incompatible avec celle de la Webview Android
 - Pas (encore) intégrée avec Cordova
-- Packaging complexe
-  - Gestion manuelle des architectures mat.*
+- Packaging complexe *
 - Non disponible sous iOS
 ]
 
@@ -564,9 +562,8 @@ class: center, middle, bg-black, white
 
 .pull-left[.red.large.center[**Limites**]
 
-- Selon le mode de déploiement, requiert un store tiers* (Marketplace)
-- Apps produites dépendantes de la version de Firefox Mobile installé
-- Concurrent de Cordova/Phonegap ?
+- Peu requérir un store tiers* (Marketplace)
+- Requiert l'installation de Firefox Mobile
 - Pas disponible pour iOS
 
 ]
@@ -582,7 +579,7 @@ class: center, middle, bg-black, white
 
 - Construction de Web Apps très simple
   - Pas une ligne de Java
-- API puissantes et ouvertes pour les apps packagées: paiement ...
+- API puissantes et ouvertes pour les apps packagées : paiement ...
 - Outils de développement/debug prêts
 - Ponts aisés vers d'autres OS
 ]
@@ -605,9 +602,11 @@ The Chromium layer is now .green[**updatable from Google Play**].
 [Android Developers](http://developer.android.com/about/versions/lollipop.html#WebView)
 ]
 
-Idem Open Web Apps : un *runtime* est déposé sur le téléphone, partagé et les "Web Apps" s'appuient dessus.
+--
 
-<i class="fa fa-hand-o-right red fa-lg"></i> .red[Idéal dans 3 ans]
+Proche Open Web Apps : un *runtime* est déposé sur le téléphone, partagé et les "Web Apps" s'appuient dessus.
+
+## <i class="fa fa-hand-o-right red fa-lg"></i> .red[Idéal dans 3 ans] (~ Chrome 64, Firefox 59 !!)
 
 ---
 name: conclusion
@@ -630,7 +629,7 @@ class: bg-black, center, white
 
 #&nbsp;
 
-.gray.large[<i class="fa fa-twitter fa-fw"></i>[@dlecan](https://twitter.com/dlecan)]
+.gray.large[<i class="fa fa-twitter fa-fw"></i>[@dlecan](https://twitter.com/dlecan) - #DevFest]
 
 .footnote.left[Built with [remark](https://github.com/gnab/remark/)]
 
